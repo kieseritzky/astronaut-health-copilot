@@ -546,7 +546,7 @@ function Checkup({
         <p className="mt-3 border-t border-white/10 pt-3 text-xs leading-5 text-slate-400">{EMERGENCY_ACTION[result.level]} These rules are for demonstration only and do not diagnose or replace a qualified professional or mission protocol.</p>
       </div>}
       <Card className="mt-5">
-        <div className="flex flex-wrap items-start justify-between gap-4"><div><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">Optional cognitive check</p><h3 className="mt-1 text-lg font-bold text-white">Reaction test</h3><p className="mt-1 max-w-lg text-xs leading-5 text-slate-400">Tap the test area when it changes to cyan. Complete five rounds. Results are illustrative and are not a validated assessment.</p></div><IconButton variant="secondary" onClick={startReaction}><Play size={14} /> Start test</IconButton></div>
+        <div className="flex flex-wrap items-start justify-between gap-4"><div><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">Optional cognitive check</p><h3 className="mt-1 text-lg font-bold text-white">Reaction test</h3><p className="mt-1 max-w-lg text-xs leading-5 text-slate-400">Tap the test area when it changes to cyan. Complete five rounds.</p></div><IconButton variant="secondary" onClick={startReaction}><Play size={14} /> Start test</IconButton></div>
         <button type="button" onClick={reactToSignal} aria-live="polite" className={`mt-4 flex h-24 w-full items-center justify-center rounded-xl border text-sm font-bold transition-colors ${reactionReady ? "border-cyan-200 bg-cyan-300 text-slate-950" : "border-white/10 bg-slate-950/50 text-slate-400"}`}>{reactionReady ? "Tap now" : reactionText}</button>
         <p className="mt-2 text-[11px] text-slate-500">{reactionText}</p>
       </Card>
@@ -763,7 +763,7 @@ function HealthLibrary() {
     { label: "What to do", value: entry.action, icon: BadgeCheck },
     { label: "How crew can help", value: entry.crew, icon: Users },
   ];
-  return <div><SectionTitle eyebrow="Reference notes" title="Medical library" description="Short teaching summaries for the demo. Confirm medical guidance and normal ranges against approved mission resources." />
+  return <div><SectionTitle eyebrow="Reference notes" title="Medical library" description="" />
     <div className="grid gap-4 lg:grid-cols-[230px_1fr]">
       <div className="space-y-2">{Object.keys(LIBRARY).map((item) => <button key={item} type="button" onClick={() => setTopic(item)} className={`flex w-full items-center justify-between rounded-lg border px-3 py-3 text-left text-sm font-semibold transition ${topic === item ? "border-sky-300/30 bg-sky-300/[0.08] text-sky-100" : "border-white/[0.07] bg-white/[0.02] text-slate-400 hover:text-white"}`}>{item}<ChevronRight size={14} /></button>)}</div>
       <Card><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">Crew reference</p><h3 className="mt-1 text-xl font-bold text-white">{topic}</h3><div className="mt-5 grid gap-3 sm:grid-cols-2">{rows.map(({ label, value, icon: Icon }) => <div key={label} className="rounded-xl border border-white/[0.07] bg-white/[0.025] p-4"><span className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-300/[0.07] text-sky-200"><Icon size={15} /></span><h4 className="mt-3 text-xs font-bold uppercase tracking-wider text-slate-400">{label}</h4><p className="mt-2 text-sm leading-6 text-slate-300">{value}</p></div>)}</div></Card>
